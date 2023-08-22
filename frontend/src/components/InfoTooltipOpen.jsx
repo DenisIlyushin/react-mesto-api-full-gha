@@ -10,7 +10,6 @@ export default function InfoTooltipOpen(
   useCloseOnEsc({isOpen, onClose});
 
   function handleClose(event) {
-    console.log('ns')
     if (event.target.classList.contains('popup_opened')
       || event.target.classList.contains('popup__close-button')) {
       return onClose()

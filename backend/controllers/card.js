@@ -28,9 +28,9 @@ module.exports.createCard = (req, res, next) => {
 };
 
 module.exports.getAllCards = (req, res, next) => {
-  Card.find({})
-    .then((card) => {
-      res.status(StatusCodes.OK).send(card);
+  Card.find({}, null, { sort: { createdAt: -1 } })
+    .then((cards) => {
+      res.status(StatusCodes.OK).send(cards);
     })
     .catch((error) => {
       handleRequestErrors(error, next);

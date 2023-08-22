@@ -211,7 +211,7 @@ function App() {
       auth.me(token)
         .then((response) => {
           setIsLoggedIn(true);
-          setUserEmail(response.data.email);
+          setUserEmail(response.email);
           navigate('/')
         })
         .catch(console.log)

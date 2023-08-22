@@ -11,7 +11,7 @@ const { requestLogger, errorLogger } = require('./middleware/logger');
 const cors = require('./middleware/cors');
 
 const {
-  PORT = 3000,
+  PORT = 4000,
   BASE_PATH = 'http://localhost',
   MONGODB_URL = 'mongodb://localhost:27017/mestodb',
 } = process.env;
@@ -31,6 +31,12 @@ app.use(requestLogger);
 app.use('/', authRouter);
 app.use('/', userRouter);
 app.use('/', cardRouter);
+// тестирование 500 ошибки
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 app.use('*', (req, res, next) => {
   next(new NotFoundError('URI не найден'));
 });

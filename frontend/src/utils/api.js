@@ -16,7 +16,10 @@ class Api {
 
   getCards() {
     return fetch(`${this.#baseUrl}/cards`, {
-        headers: this.#headers
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          ... this.#headers
+        }
       }
     )
       .then(this.#handleResponse);
@@ -24,8 +27,10 @@ class Api {
 
   getUserInfo() {
     return fetch(`${this.#baseUrl}/users/me`, {
-        headers: this.#headers
-      }
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        ... this.#headers
+      }}
     )
       .then(this.#handleResponse)
   };
@@ -33,7 +38,10 @@ class Api {
   setUserInfo({name, about}) {
     return fetch(`${this.#baseUrl}/users/me`, {
       method: 'PATCH',
-      headers: this.#headers,
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        ... this.#headers
+      },
       body: JSON.stringify({
         name: name,
         about: about
@@ -44,7 +52,10 @@ class Api {
   setUserAvatar({avatar}) {
     return fetch(`${this.#baseUrl}/users/me/avatar`, {
       method: 'PATCH',
-      headers: this.#headers,
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        ... this.#headers
+      },
       body: JSON.stringify({
         avatar: avatar
       }),
@@ -54,7 +65,10 @@ class Api {
   createMesto({name, link}) {
     return fetch(`${this.#baseUrl}/cards`, {
       method: 'POST',
-      headers: this.#headers,
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        ... this.#headers
+      },
       body: JSON.stringify({
         name: name,
         link: link
@@ -65,29 +79,37 @@ class Api {
   deleteCard(id) {
     return fetch(`${this.#baseUrl}/cards/${id}`, {
       method: 'DELETE',
-      headers: this.#headers,
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        ... this.#headers
+      },
     }).then(this.#handleResponse)
   };
 
   likeCard(id) {
     return fetch(`${this.#baseUrl}/cards/${id}/likes`, {
       method: 'PUT',
-      headers: this.#headers,
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        ... this.#headers
+      },
     }).then(this.#handleResponse)
   };
 
   dislikeCard(id) {
     return fetch(`${this.#baseUrl}/cards/${id}/likes`, {
       method: 'DELETE',
-      headers: this.#headers,
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        ... this.#headers
+      },
     }).then(this.#handleResponse)
   };
 }
 
 const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-66',
+  baseUrl: 'http://localhost:4000',
   headers: {
-    authorization: 'dc6a4a93-0c58-4e81-85df-4663aee25693',
     'Content-Type': 'application/json',
   },
 })

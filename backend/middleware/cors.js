@@ -1,9 +1,10 @@
-// TODO было бы не плохо получать адрес из .env
-
-const { NODE_ENV = 'dev' } = process.env;
+const {
+  NODE_ENV = 'dev',
+  FRONT_URL = 'ilyushindenis-15-front.nomoredomainsicu.ru',
+} = process.env;
 const allowedCors = [
-  'http://ilyushindenis-15-front.nomoredomainsicu.ru',
-  'https://ilyushindenis-15-front.nomoredomainsicu.ru',
+  `http://${FRONT_URL}`,
+  `https://${FRONT_URL}`,
   'http://localhost:3000',
   'https://localhost:3000',
 ];
@@ -13,7 +14,7 @@ if (NODE_ENV === 'dev') {
   allowedCors.push('*');
 }
 
-const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
+const defaultAllowedMethods = 'GET,HEAD,PUT,PATCH,POST,DELETE';
 
 module.exports = (req, res, next) => {
   const { method } = req;
@@ -25,9 +26,9 @@ module.exports = (req, res, next) => {
     res.header('Access-Control-Allow-Origin', origin);
   }
   if (method === 'OPTIONS') {
-    res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
+    res.header('Access-Control-Allow-Methods', defaultAllowedMethods);
     res.header('Access-Control-Allow-Headers', requestHeaders);
-    res.end();
+    return res.end();
   }
-  next();
+  return next();
 };
