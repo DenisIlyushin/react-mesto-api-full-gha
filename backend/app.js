@@ -11,7 +11,7 @@ const { requestLogger, errorLogger } = require('./middleware/logger');
 const cors = require('./middleware/cors');
 
 const {
-  PORT = 4000,
+  PORT = 3000,
   BASE_PATH = 'http://localhost',
   MONGODB_URL = 'mongodb://localhost:27017/mestodb',
 } = process.env;
