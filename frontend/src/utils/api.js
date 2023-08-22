@@ -1,3 +1,7 @@
+const {
+  BACKEND_URL = 'http://localhost:4000',
+} = process.env;
+
 class Api {
   #baseUrl;
   #headers;
@@ -108,10 +112,11 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'http://localhost:4000',
+  baseUrl: `${BACKEND_URL}`,
   headers: {
     'Content-Type': 'application/json',
   },
 })
+
 
 export default api
