@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP 158.160.14.147
 
-Frontend https://...
+Frontend https://ilyushindenis-15-front.nomoredomainsicu.ru
 
-Backend https://...
+Backend https://ilyushindenis-15-back.nomoredomainsicu.ru
