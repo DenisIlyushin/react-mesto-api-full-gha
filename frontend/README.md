@@ -34,11 +34,6 @@
 - [Модификация макета 9 спринт](https://www.figma.com/file/PSdQFRHoxXJFs2FH8IXViF/JavaScript.-Sprint-9?type=design&t=KGZwFa22kt8ab2WR-0)
 - [Модификация макета 12 спринт](https://www.figma.com/file/5H3gsn5lIGPwzBPby9jAOo/Sprint-14-RU?node-id=0%3A1)
 
-### Шаблон наполнения .env
-Файл `.env` следует разместить в директории `./fronend`.
-Пример наполнения с комментариями приведет в файле `./.env.example`
-
-ВНИМАНИЕ! При форматировании файла убрать все, что написано после `#`
 ---
 ### Автор проекта
 

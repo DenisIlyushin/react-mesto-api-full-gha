@@ -1,7 +1,3 @@
-const {
-  BACKEND_URL = 'http://localhost:4000',
-} = process.env;
-
 class Auth {
   #baseUrl;
   #headers;
@@ -59,7 +55,7 @@ class Auth {
 }
 
 const auth = new Auth({
-  baseUrl: `${BACKEND_URL}`,
+  baseUrl: 'http://localhost:4000',
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
