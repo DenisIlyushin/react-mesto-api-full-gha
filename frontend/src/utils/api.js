@@ -5,7 +5,6 @@ class Api {
   constructor(options) {
     this.#baseUrl = options.baseUrl;
     this.#headers = options.headers;
-    console.log(process.env)
   };
 
   #handleResponse(response) {
@@ -18,7 +17,7 @@ class Api {
   getCards() {
     return fetch(`${this.#baseUrl}/cards`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          Authorization: `Bearer ${ localStorage.getItem('token') }`,
           ... this.#headers
         }
       }
@@ -29,7 +28,7 @@ class Api {
   getUserInfo() {
     return fetch(`${this.#baseUrl}/users/me`, {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        Authorization: `Bearer ${ localStorage.getItem('token') }`,
         ... this.#headers
       }}
     )
@@ -40,7 +39,7 @@ class Api {
     return fetch(`${this.#baseUrl}/users/me`, {
       method: 'PATCH',
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        Authorization: `Bearer ${ localStorage.getItem('token') }`,
         ... this.#headers
       },
       body: JSON.stringify({
@@ -54,7 +53,7 @@ class Api {
     return fetch(`${this.#baseUrl}/users/me/avatar`, {
       method: 'PATCH',
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        Authorization: `Bearer ${ localStorage.getItem('token') }`,
         ... this.#headers
       },
       body: JSON.stringify({
@@ -67,7 +66,7 @@ class Api {
     return fetch(`${this.#baseUrl}/cards`, {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        Authorization: `Bearer ${ localStorage.getItem('token') }`,
         ... this.#headers
       },
       body: JSON.stringify({
@@ -81,7 +80,7 @@ class Api {
     return fetch(`${this.#baseUrl}/cards/${id}`, {
       method: 'DELETE',
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        Authorization: `Bearer ${ localStorage.getItem('token') }`,
         ... this.#headers
       },
     }).then(this.#handleResponse)
@@ -91,7 +90,7 @@ class Api {
     return fetch(`${this.#baseUrl}/cards/${id}/likes`, {
       method: 'PUT',
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        Authorization: `Bearer ${ localStorage.getItem('token') }`,
         ... this.#headers
       },
     }).then(this.#handleResponse)
@@ -101,7 +100,7 @@ class Api {
     return fetch(`${this.#baseUrl}/cards/${id}/likes`, {
       method: 'DELETE',
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        Authorization: `Bearer ${ localStorage.getItem('token') }`,
         ... this.#headers
       },
     }).then(this.#handleResponse)
