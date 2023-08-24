@@ -108,7 +108,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'http://ilyushindenis-15-back.nomoredomainsicu.ru',
+  baseUrl: 'https://ilyushindenis-15-back.nomoredomainsicu.ru',
   headers: {
     'Content-Type': 'application/json',
   },
